@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div class="js-index-page">
+        <comp-a></comp-a>
+        <comp-b></comp-b>
+    </div>
+    <script type="application/javascript" src="/node_modules/vue/dist/vue.min.js"></script>
+    <script type="application/javascript" src="/lib_vendor/mod/mod.js"></script>
+    <script>
+
+        require(['./page/index/comp-a/comp-a.js','./page/index/comp-b/comp-b.js']);
+
+        new Vue({
+            el: '.js-index-page'
+        });
+    </script>
+</body>
+</html>
