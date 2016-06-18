@@ -5,15 +5,34 @@
         <title>首页</title>
     </head>
     <body>
-        <index></index>
+        <!--<index></index>-->
+        <div id="jsAppWrap">
+            <p>
+                <a v-link="{ path: '/a' }">Go to comp-a</a>
+            </p>
+        </div>
+	<!--add comment-->
+        <router-view></router-view>
         <script type="application/javascript" src="/node_modules/vue/dist/vue.min.js"></script>
+        <script type="application/javascript" src="/node_modules/vue-router/dist/vue-router.min.js"></script>
+
         <script type="application/javascript" src="/lib-vendor/mod/mod.js"></script>
         <script>
-            require('./index/index');
+//            var CompA = require('./index/index');
 
-            new Vue({
-                el: 'body'
-            });
+            var CompA = require('./comp-a/comp-a');
+            var router = new VueRouter();
+            router.map({
+                '/a': {
+                    component: CompA
+                }
+            })
+
+//            var App = new Vue({
+//                el: '#jsAppWrap'
+//            });
+            var App = Vue.extend({});
+            router.start(App, '#jsAppWrap');
         </script>
     </body>
 </html>
